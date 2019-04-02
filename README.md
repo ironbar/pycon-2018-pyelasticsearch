@@ -17,6 +17,8 @@ To participate in this tutorial, you need the following:
 
 # [Lesson 1](/lessons/Lesson1_Indexing.md)
 
+Create the index
+
 # [Lesson 2](/lessons/Lesson2_Searching.md)
 Continuing from Part 1:
 ```

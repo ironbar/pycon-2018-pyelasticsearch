@@ -1,4 +1,6 @@
 from elasticsearch import Elasticsearch
+from elasticsearch.helpers import bulk
+from tqdm import tqdm
 
 from searchapp.constants import DOC_TYPE, INDEX_NAME
 from searchapp.data import all_products, ProductData
@@ -16,8 +18,9 @@ def main():
             'settings': {},
         },
     )
-
-    index_product(es, all_products()[0])
+    products_to_index(es)
+    # for product in tqdm(all_products(), desc='Indexing products'):
+    #     index_product(es, product)
 
 
 def index_product(es, product: ProductData):
@@ -26,16 +29,30 @@ def index_product(es, product: ProductData):
     es.create(
         index=INDEX_NAME,
         doc_type=DOC_TYPE,
-        id=1,
+        id=product.id,
         body={
-            "name": "A Great Product",
-            "image": "http://placekitten.com/200/200",
+            "name": product.name,
+            "image": product.image,
+            # "description": product.description,
+            # "price": product.price,
+            # "taxonomy": product.taxonomy
         }
     )
 
-    # Don't delete this! You'll need it to see if your indexing job is working,
-    # or if it has stalled.
-    print("Indexed {}".format("A Great Product"))
+def products_to_index(es):
+    bulk(es, gendata())
+
+def gendata():
+    for product in all_products():
+        yield dict(
+            _index=INDEX_NAME,
+            _type=DOC_TYPE,
+            _id=product.id,
+            _source={
+                "name": product.name,
+                "image": product.image,
+            }
+        )
 
 
 if __name__ == '__main__':
