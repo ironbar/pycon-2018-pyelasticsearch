@@ -15,6 +15,8 @@ To participate in this tutorial, you need the following:
 
 2) Complete the [Tutorial Prerequisites](/lessons/Lesson0_Prerequisites.md)
 
+# [Lesson 1](/lessons/Lesson1_Indexing.md)
+
 # [Lesson 2](/lessons/Lesson2_Searching.md)
 Continuing from Part 1:
 ```
@@ -24,3 +26,7 @@ git checkout session2
 source venv/bin/activate
 python searchapp/index_products.py
 ```
+
+# [Lesson 3](/lessons/Lesson3_Analysis.md)
+
+# [Lesson 4](/lessons/Lesson4_ExtraCredit.md)
