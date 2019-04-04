@@ -20,14 +20,10 @@ To participate in this tutorial, you need the following:
 Create the index
 
 # [Lesson 2](/lessons/Lesson2_Searching.md)
-Continuing from Part 1:
-```
-git commit -am "session1 work"
-git fetch
-git checkout session2
-source venv/bin/activate
-python searchapp/index_products.py
-```
+
+The **term** query finds documents that contain the exact term specified in the inverted index. For instance:
+
+The **match** query is of type boolean. It means that the text provided is analyzed and the analysis process constructs a boolean query from the provided text. The operator flag can be set to or or and to control the boolean clauses (defaults to or).
 
 # [Lesson 3](/lessons/Lesson3_Analysis.md)
 
