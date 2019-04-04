@@ -25,6 +25,8 @@ The **term** query finds documents that contain the exact term specified in the 
 
 The **match** query is of type boolean. It means that the text provided is analyzed and the analysis process constructs a boolean query from the provided text. The operator flag can be set to or or and to control the boolean clauses (defaults to or).
 
+The fuzziness parameter allows to deal with mispelling.
+
 # [Lesson 3](/lessons/Lesson3_Analysis.md)
 
 # [Lesson 4](/lessons/Lesson4_ExtraCredit.md)
