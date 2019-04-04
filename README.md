@@ -29,4 +29,6 @@ The fuzziness parameter allows to deal with mispelling.
 
 # [Lesson 3](/lessons/Lesson3_Analysis.md)
 
+In this lesson we get rid of stopwords by using a standar english analizer and we also add some custom stopwords.
+
 # [Lesson 4](/lessons/Lesson4_ExtraCredit.md)

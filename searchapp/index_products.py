@@ -22,14 +22,23 @@ def main():
                             'fields': {                             # create an analyzed field.
                                 'english_analyzed': {                 # Name that field `name.english_analyzed`.
                                     'type': 'text',                     # It’s also text.
-                                    'analyzer': 'english',              # And here’s the analyzer we want to use.
+                                    'analyzer': 'custom_english_analyzer',              # And here’s the analyzer we want to use.
                                 }
                             }
                         }
                     }
                 }
             },
-            'settings': {},
+            'settings': {
+                'analysis': {                                                 # magic word.
+                    'analyzer': {                                             # yet another magic word.
+                        'custom_english_analyzer': {              # The name of our analyzer.
+                            'type': 'english',                               # The built in analyzer we’re building on.
+                            'stopwords': ['made', '_english_'],   # Our custom stop words, plus the defaults.
+                        },
+                    },
+                },
+            }
         },
     )
     products_to_index(es)
